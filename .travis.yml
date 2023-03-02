@@ -1,10 +1,11 @@
 language: node_js
 node_js:
-  - "16"
+  - "14"
 dist: trusty
 services:
   - redis-server
-  - mongodb
+addons:
+  - mongodb:6.0.0
 env:
   - NODE_ENV=ci PORT=3000
 cache:
