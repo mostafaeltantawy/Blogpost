@@ -1,15 +1,15 @@
 const puppeteer = require("puppeteer");
 
 const Page = require("./helpers/page");
-let browser, page;
-beforeEach(async () => {
-  page = await Page.build();
+// let browser, page;
+// beforeEach(async () => {
+//   page = await Page.build();
 
-  await page.goto("http://localhost:3000");
-});
-afterEach(async () => {
-  await page.close();
-});
+//   await page.goto("http://localhost:3000");
+// });
+// afterEach(async () => {
+//   await page.close();
+// });
 
 test("the header has the correct text ", async () => {
   // const text = await page.getContentsOf("a.brand-logo");
