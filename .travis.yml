@@ -4,8 +4,7 @@ node_js:
 dist: trusty
 services:
   - redis-server
-addons:
-  - mongodb:6.0.0
+  - mongodb
 env:
   - NODE_ENV=ci PORT=3000
 cache:
