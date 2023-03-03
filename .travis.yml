@@ -16,20 +16,20 @@ before_install:
   - mkdir ~/solution
   - cd ~/solution/
   - cat << EOF > ~/solution/sources.list
-  - sudo add-apt-repository deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse
-  - sudo add-apt-repository deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse
+  - sudo "add-apt-repository deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse"
+  - sudo "add-apt-repository deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse"
 
-  - sudo add-apt-repository deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse
-  - sudo add-apt-repository deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse
+  - sudo "add-apt-repository deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse"
+  - sudo "add-apt-repository deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse"
 
-  - sudo add-apt-repository deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
-  - sudo add-apt-repository deb-src http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
+  - sudo "add-apt-repository deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse"
+  - sudo "add-apt-repository deb-src http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse"
 
-  - sudo add-apt-repository deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
-  - sudo add-apt-repository deb-src http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
+  - sudo "add-apt-repository deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse"
+  - sudo "add-apt-repository deb-src http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse"
 
-  - sudo add-apt-repository deb http://archive.canonical.com/ubuntu focal partner
-  - sudo add-apt-repository deb-src http://archive.canonical.com/ubuntu focal partner
+  - sudo "add-apt-repository deb http://archive.canonical.com/ubuntu focal partner"
+  - sudo "add-apt-repository deb-src http://archive.canonical.com/ubuntu focal partner"
   - EOF
   - sudo sed -i "s/focal/$(lsb_release -c -s)/" ~/solution/sources.list
   - sudo rm /etc/apt/sources.list
