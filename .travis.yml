@@ -11,6 +11,29 @@ cache:
     - node_modules
     - client/node_modules
 before_install:
+  - mkdir ~/solution
+  - cd ~/solution/
+  - cat << EOF > ~/solution/sources.list
+deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse
+
+deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse
+
+deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
+
+deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
+
+deb http://archive.canonical.com/ubuntu focal partner
+deb-src http://archive.canonical.com/ubuntu focal partner
+EOF
+  - sudo sed -i "s/focal/$(lsb_release -c -s)/" ~/solution/sources.list
+  - sudo rm /etc/apt/sources.list
+  - sudo cp ~/solution/sources.list /etc/apt/sources.list
+  - sudo mv /etc/apt/sources.list.d/* ~/solution
+  - sudo apt update
   - sudo apt-get install gnupg
   - wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
   - echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
